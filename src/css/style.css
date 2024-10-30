@@ -1,0 +1,9 @@
+body {
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #696969;
+}
+
+#root {
+  width: 500px;
+}

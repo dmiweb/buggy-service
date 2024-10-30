@@ -1,0 +1,29 @@
+.news-widget {
+  box-sizing: border-box;
+  position: relative;
+  max-width: 600px;
+  padding: 8px;
+  border: 1px solid #000000;
+  border-radius: 15px;
+}
+.news-widget__title {
+  margin: 0;
+}
+.news-widget__reload-btn {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  border: none;
+  font-size: 18px;
+  text-decoration: underline;
+  background: transparent;
+  color: #696969;
+  cursor: pointer;
+}
+.news-widget__news-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0;
+  list-style: none;
+}

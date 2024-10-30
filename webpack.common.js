@@ -1,0 +1,66 @@
+const path = require('path');
+const HtmlWebPackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+// const WorkboxPlugin = require('workbox-webpack-plugin');
+
+module.exports = {
+  target: 'web',
+  entry: {
+    'index': "./src/index.js",
+    'service.worker': "./src/service.worker.js",
+},
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: '',
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+        },
+      },
+      {
+        test: /\.html$/,
+        use: [
+          {
+            loader: 'html-loader',
+          },
+        ],
+      },
+      {
+        test: /\.css$/,
+        use: [
+          MiniCssExtractPlugin.loader, 'css-loader',
+        ],
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'img/[name][ext]', 
+        },
+      },
+    ],
+  },
+  plugins: [
+    new HtmlWebPackPlugin({
+      template: './src/index.html',
+      filename: './index.html',
+    }),
+    new HtmlWebPackPlugin({
+      template: './src/fallback.html',
+      filename: './fallback.html',
+    }),
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
+      chunkFilename: '[id].css',
+    }),
+    // new WorkboxPlugin.InjectManifest({
+    //   swSrc: './src/service.worker.js',
+    //   swDest: 'service.worker.js',
+    // }),
+  ],
+};

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fallback</title>
+  <style>
+    .news-widget {
+      box-sizing: border-box;
+      position: relative;
+      max-width: 500px;
+      padding: 8px;
+      border: 1px solid #000000;
+      border-radius: 15px;
+    }
+
+    .news-widget__no-network {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      border-radius: 15px;
+      background-color: rgba(255, 255, 255, 0.9);
+    }
+
+    .no-network__message {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 18px;
+      line-height: 1.5;
+      text-align: center;
+      color: #696969;
+    }
+
+    .news-widget__title {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #696969;
+    }
+
+    .news-widget__reload-btn {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      border: none;
+      font-size: 18px;
+      text-decoration: underline;
+      background: transparent;
+      color: #696969;
+      cursor: pointer;
+    }
+
+    .news-widget__news-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .skelet-item__title {
+      width: 40%;
+      height: 1.3em;
+      margin: 0;
+      padding: 0;
+      margin-bottom: 7px;
+      font-size: 14px;
+    }
+
+    .skelet-item__img {
+      width: 50px;
+      height: 50px;
+      float: left;
+    }
+
+    .skelet-item__content {
+      position: relative;
+      height: 1.4em;
+      margin: 0 1em 0.8em 4.6em;
+      font-size: 14px;
+    }
+
+    .skelet-item__content:last-child {
+      margin-bottom: 0;
+    }
+
+    .skelet-item__title,
+    .skelet-item__img,
+    .skelet-item__content {
+      background: linear-gradient(110deg, #a8a8a8 8%, #cfcfcf 18%, #a8a8a8 33%);
+      background-size: 200% 100%;
+      animation: 1.5s shine linear infinite;
+    }
+
+    @keyframes shine {
+  to {
+    background-position-x: -200%;
+  }
+}
+  </style>
+</head>
+
+<body>
+  <div class="news-widget">
+    <h2 class="news-widget__title">Новости мира кино</h2>
+    <button class="news-widget__reload-btn">Обновить</button>
+    <ul class="news-widget__news-list news-list">
+
+      <li class="news-list__skelet-item skelet-item">
+        <h3 class="skelet-item__title"></h3>
+        <div class="skelet-item__img"></div>
+        <p class="skelet-item__content"></p>
+        <p class="skelet-item__content"></p>
+      </li>
+      <li class="news-list__skelet-item skelet-item">
+        <h3 class="skelet-item__title"></h3>
+        <div class="skelet-item__img"></div>
+        <p class="skelet-item__content"></p>
+        <p class="skelet-item__content"></p>
+      </li>
+      <li class="news-list__skelet-item skelet-item">
+        <h3 class="skelet-item__title"></h3>
+        <div class="skelet-item__img"></div>
+        <p class="skelet-item__content"></p>
+        <p class="skelet-item__content"></p>
+      </li>
+
+    </ul>
+    <div class="news-widget__no-network no-network">
+      <span class="no-network__message">Не удалось загрузить данные <br> Проверьте подключение <br> и обновите
+        страницу</span>
+    </div>
+  </div>
+</body>
+
+</html>
