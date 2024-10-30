@@ -1,7 +1,7 @@
 import "./News.css";
 
 export default class News {
-  constructor() { }
+  constructor() {}
 
   static markup(title, image, content) {
     return `

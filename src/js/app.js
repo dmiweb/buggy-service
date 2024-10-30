@@ -3,21 +3,19 @@ import Preloader from "./components/Preloader/Preloader";
 import NewsList from "./components/NewsList/NewsList";
 import News from "./components/News/News";
 
-
 if (navigator.serviceWorker) {
-	window.addEventListener('load', async () => {
-		try {
-			if (navigator.serviceWorker) {
-				await navigator.serviceWorker.register(
-				'./service.worker.js', 
-        {scope: './'}
-				);
-				console.log('Сервис-воркер зарегистрирован');
-			}
-		} catch (e) {
-			console.log(e);
-		}
-	});
+  window.addEventListener("load", async () => {
+    try {
+      if (navigator.serviceWorker) {
+        await navigator.serviceWorker.register("./service.worker.js", {
+          scope: "./",
+        });
+        console.log("Сервис-воркер зарегистрирован");
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  });
 }
 
 document.addEventListener("DOMContentLoaded", () => {

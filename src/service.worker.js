@@ -1,23 +1,20 @@
-self.addEventListener('install', (event) => {
-  console.log('Установлен');
+self.addEventListener("install", (event) => {
+  console.log("Установлен");
 
   event.waitUntil(
-    caches.open('CACHE')
-      .then((cache) => {
-        cache.addAll([
-          "./",
-          "./index.html",
-          "./index.css",
-          "./fallback.html"
-        ])
-      }, (error) => {
-        console.log(error)
-      })
-  )
+    caches.open("CACHE").then(
+      (cache) => {
+        cache.addAll(["./", "./index.html", "./index.css", "./fallback.html"]);
+      },
+      (error) => {
+        console.log(error);
+      }
+    )
+  );
 });
 
-self.addEventListener('activate', (event) => {
-  console.log('Активирован');
+self.addEventListener("activate", () => {
+  console.log("Активирован");
 });
 
 async function fetchPriorityThenCache(event) {
@@ -26,7 +23,7 @@ async function fetchPriorityThenCache(event) {
   try {
     response = await fetch(event.request);
   } catch (err) {
-    response = await caches.match('./fallback.html');
+    response = await caches.match("./fallback.html");
   }
 
   if (response.status === 500) {
@@ -44,8 +41,8 @@ async function fetchPriorityThenCache(event) {
   return response;
 }
 
-self.addEventListener('fetch', (event) => {
-  console.log('Происходит запрос на сервер');
+self.addEventListener("fetch", (event) => {
+  console.log("Происходит запрос на сервер");
 
   event.respondWith(fetchPriorityThenCache(event));
 });

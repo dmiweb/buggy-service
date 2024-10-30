@@ -1,7 +1,7 @@
 import "./Preloader.css";
 
 export default class Preloader {
-  constructor() { }
+  constructor() {}
 
   static get markupSkelet() {
     return `
@@ -24,11 +24,11 @@ export default class Preloader {
 
   renderSkeletNews(container, count) {
     for (let i = 0; i < count; i++) {
-      container.insertAdjacentHTML('beforeEnd', Preloader.markupSkelet);
+      container.insertAdjacentHTML("beforeEnd", Preloader.markupSkelet);
     }
   }
 
   renderWidgetNoConnect(container) {
-    container.insertAdjacentHTML('beforeEnd', Preloader.markupWidgetNoConnect);
+    container.insertAdjacentHTML("beforeEnd", Preloader.markupWidgetNoConnect);
   }
 }

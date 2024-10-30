@@ -10,7 +10,9 @@ export default class NewsList {
 
     this.reload = this.reload.bind(this);
 
-    this.container.querySelector('.news-widget__reload-btn').addEventListener('click', this.reload);
+    this.container
+      .querySelector(".news-widget__reload-btn")
+      .addEventListener("click", this.reload);
   }
 
   static get markup() {
@@ -51,7 +53,7 @@ export default class NewsList {
 
     newsList.innerHTML = "";
 
-    this.preloader.renderSkeletNews(newsList, 3)
+    this.preloader.renderSkeletNews(newsList, 3);
 
     try {
       const { news } = await this.getNews();
@@ -67,7 +69,7 @@ export default class NewsList {
     } catch (err) {
       setTimeout(() => {
         this.preloader.renderWidgetNoConnect(newsList);
-      }, 1000)
+      }, 1000);
     }
   }
 }
