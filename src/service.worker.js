@@ -2,7 +2,7 @@ self.addEventListener("install", (event) => {
   console.log("Установлен");
 
   event.waitUntil(
-    caches.open("CACHE").then(
+    caches.open("BUGGY-SERVICE-CACHE").then(
       (cache) => {
         cache.addAll(["./", "./index.html", "./index.css", "./fallback.html"]);
       },
@@ -34,7 +34,7 @@ async function fetchPriorityThenCache(event) {
     }
   }
 
-  const cache = await caches.open("CACHE");
+  const cache = await caches.open("BUGGY-SERVICE-CACHE");
 
   cache.put(event.request, response.clone());
 
